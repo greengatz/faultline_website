@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import HeroLayout from '../layouts/HeroLayout.astro';
+
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <Layout title="Welcome | Faultline 40k">
@@ -17,8 +19,8 @@ import HeroLayout from '../layouts/HeroLayout.astro';
       Join us if you love the game and hobby and want to share that with others who feel the same way!
     </p>
     <div class="actions">
-      <a href="/join-us" class="btn btn-primary">Join Faultline</a>
-      <a href="/who-we-are" class="btn btn-secondary">Learn More</a>
+      <a href={`${baseUrl}/join-us`} class="btn btn-primary">Join Faultline</a>
+      <a href={`${baseUrl}/who-we-are`} class="btn btn-secondary">Learn More</a>
     </div>
   </HeroLayout>
 </Layout>

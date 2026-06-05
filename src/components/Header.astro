@@ -5,22 +5,24 @@ import logoIcon from '../assets/maelstrom-dice_2x.png';
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.replace(/\/$/, ""); // Normalize trailing slashes
 
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 const navItems = [
-  { href: "/", label: "Welcome" },
-  { href: "/who-we-are", label: "What is Faultline" },
-  { href: "/join-us", label: "Join Us" }
+  { href: `${baseUrl}/`, label: "Welcome" },
+  { href: `${baseUrl}/who-we-are`, label: "What is Faultline" },
+  { href: `${baseUrl}/join-us`, label: "Join Us" }
 ];
 ---
 
 <header class="header">
   <div class="container">
-    <a href="/" class="logo">
+    <a href={`${baseUrl}/`} class="logo">
       <Image src={logoIcon} alt="Faultline 40k Logo" class="logo-icon" width={42} height={42} />
       FAULTLINE <span class="logo-accent">40K</span>
     </a>
     <nav class="nav">
       {navItems.map((item) => {
-        const isActive = currentPath === item.href || (item.href === "/" && currentPath === "");
+        const isActive = currentPath === item.href.replace(/\/$/, "");
         return (
           <a
             href={item.href}
