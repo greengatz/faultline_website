@@ -1,0 +1,110 @@
+---
+import { Image } from 'astro:assets';
+import tinyTitansImage from '../assets/tiny_titans.jpg';
+
+interface Props {
+  reverse?: boolean;
+}
+
+const { reverse = false } = Astro.props;
+---
+
+<section class="hero-section">
+  <div class={`hero-grid ${reverse ? 'reverse' : ''}`}>
+    <div class="hero-text">
+      <slot />
+    </div>
+    <div class="hero-image-wrapper">
+      <Image 
+        src={tinyTitansImage} 
+        alt="Tiny Titans" 
+        class="hero-image"
+        loading="eager"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    width: 100%;
+    background-color: var(--bg-primary);
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    min-height: calc(100vh - 70px - 81px); /* Match viewport minus header/footer */
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    padding-left: max(2rem, calc((100vw - 1200px) / 2 + 2rem));
+    padding-right: 4rem;
+  }
+
+  .hero-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--bg-secondary);
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hero-image-wrapper:hover .hero-image {
+    transform: scale(1.04);
+  }
+
+  /* Reverse layout: Text on Right, Image on Left on desktop */
+  .hero-grid.reverse .hero-text {
+    order: 2;
+    padding-left: 4rem;
+    padding-right: max(2rem, calc((100vw - 1200px) / 2 + 2rem));
+  }
+
+  .hero-grid.reverse .hero-image-wrapper {
+    order: 1;
+  }
+
+  /* Responsive styling */
+  @media (max-width: 968px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+
+    .hero-text {
+      padding: 4rem 1.5rem;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* Force text first, image second on mobile regardless of layout order */
+    .hero-grid.reverse .hero-text {
+      order: 0;
+      padding: 4rem 1.5rem;
+    }
+
+    .hero-grid.reverse .hero-image-wrapper {
+      order: 0;
+    }
+
+    .hero-image-wrapper {
+      aspect-ratio: 16 / 10;
+      height: 350px;
+    }
+  }
+</style>

@@ -1,0 +1,110 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroLayout from '../layouts/HeroLayout.astro';
+---
+
+<Layout title="Join Us | Faultline 40k">
+  <HeroLayout reverse = {true}>
+    <span class="tagline">Faultline 40K</span>
+    <h1 class="title">Want to <span class="highlight">Join?</span></h1>
+    <p class="description">
+      Does this sound like the place for you? Great!
+    </p>
+    <ul class="bullet-list">
+      <li>
+        We meet Thursdays at <a href="https://www.guildhouse.gg/">Guildhouse</a> in downtown San Jose
+      </li>
+      <li>
+        We organize through <a href="https://discord.gg/w2EAQSn2W7">Discord</a>. We schedule our games in advance so no one shows up and can't find a partner.
+      </li>
+      <li>
+        To become a full member, please read through our welcome document (TODO - link) to learn more about us, then come and play a few games with us!
+      </li>
+    </ul>
+    <div class="actions">
+      <a href="https://discord.gg/w2EAQSn2W7" class="btn btn-primary">Our Discord</a>
+    </div>
+  </HeroLayout>
+</Layout>
+
+<style>
+  .tagline {
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+  }
+
+  .title {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.15;
+  }
+
+  .highlight {
+    color: var(--accent);
+  }
+
+  .description {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .bullet-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+    text-align: left;
+  }
+
+  .bullet-list li {
+    position: relative;
+    padding-left: 1.75rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+  }
+
+  .bullet-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0.25rem;
+    top: -1px;
+    font-size: 1.25rem;
+    color: var(--accent);
+  }
+
+  .bullet-list strong {
+    color: var(--text-primary);
+  }
+
+  .bullet-list li a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+  }
+
+  .bullet-list li a:hover {
+    color: var(--accent-hover);
+    border-bottom-color: var(--accent-hover);
+  }
+
+  .actions {
+    display: flex;
+    gap: 1rem;
+  }
+
+  @media (max-width: 968px) {
+    .title {
+      font-size: 2.25rem;
+    }
+    .actions {
+      justify-content: center;
+    }
+  }
+</style>

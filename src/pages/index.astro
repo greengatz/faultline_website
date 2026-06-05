@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroLayout from '../layouts/HeroLayout.astro';
+---
+
+<Layout title="Welcome | Faultline 40k">
+  <HeroLayout>
+    <span class="tagline">Faultline 40K</span>
+    <h1 class="title">A Narrative Tabletop Gaming <span class="highlight">Community</span> in the Bay Area</h1>
+    <p class="description">
+      Welcome to Faultline 40K! We are an adult tabletop gaming community focused on Warhammer 40K based in the Bay Area, California.
+    </p>
+    <p class="description">
+      We have a passion for casual, narrative games featuring fully painted minis and terrain.
+    </p>
+    <p class="description">
+      Join us if you love the game and hobby and want to share that with others who feel the same way!
+    </p>
+    <div class="actions">
+      <a href="/join-us" class="btn btn-primary">Join Faultline</a>
+      <a href="/who-we-are" class="btn btn-secondary">Learn More</a>
+    </div>
+  </HeroLayout>
+</Layout>
+
+<style>
+  .tagline {
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+  }
+
+  .title {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.15;
+  }
+
+  .highlight {
+    color: var(--accent);
+  }
+
+  .description {
+    font-size: 1.1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  @media (max-width: 968px) {
+    .title {
+      font-size: 2.25rem;
+    }
+    .actions {
+      justify-content: center;
+    }
+  }
+</style>

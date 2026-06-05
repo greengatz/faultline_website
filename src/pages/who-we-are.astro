@@ -1,0 +1,96 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroLayout from '../layouts/HeroLayout.astro';
+---
+
+<Layout title="What is Faultline | Faultline 40k">
+  <HeroLayout reverse={true}>
+    <span class="tagline">Faultline 40K</span>
+    <h1 class="title">Our <span class="highlight">Shared Beliefs</span> are the Foundation</h1>
+    <ul class="bullet-list">
+      <li>
+        <strong>Passionate about the Game and Hobby:</strong> It all starts with painted minis and boards.
+      <li>
+        <strong>Casual Narrative Play:</strong> We are serious about the games and the story they can tell, which has far more potential than "Alice beat Bob 53-46."
+      </li>
+      <li>
+        <strong>Engaged Community Members:</strong> We show up to build the community that we want to see. We build bonds by choosing to spend time with each other.
+      </li>
+      <li>
+        <strong>Support the Creators:</strong> We support the companies that make the games we play, because without them we wouldn't be here.
+      </li>
+    </ul>
+    <div class="actions">
+      <a href="/join-us" class="btn btn-primary">Join Faultline</a>
+    </div>
+  </HeroLayout>
+</Layout>
+
+<style>
+  .tagline {
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+  }
+
+  .title {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.15;
+  }
+
+  .highlight {
+    color: var(--accent);
+  }
+
+  .description {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .bullet-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+    text-align: left;
+  }
+
+  .bullet-list li {
+    position: relative;
+    padding-left: 1.75rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+  }
+
+  .bullet-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0.25rem;
+    top: -1px;
+    font-size: 1.25rem;
+    color: var(--accent);
+  }
+
+  .bullet-list strong {
+    color: var(--text-primary);
+  }
+
+  .actions {
+    display: flex;
+    gap: 1rem;
+  }
+
+  @media (max-width: 968px) {
+    .title {
+      font-size: 2.25rem;
+    }
+    .actions {
+      justify-content: center;
+    }
+  }
+</style>
