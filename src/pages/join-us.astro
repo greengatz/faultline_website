@@ -1,10 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import HeroLayout from '../layouts/HeroLayout.astro';
+import marinesNidsImage from '../assets/marines_nids_2.jpg';
 ---
 
 <Layout title="Join Us | Faultline 40k">
-  <HeroLayout reverse = {true}>
+  <HeroLayout reverse = {false} image_src = {marinesNidsImage}>
     <span class="tagline">Faultline 40K</span>
     <h1 class="title">Want to <span class="highlight">Join?</span></h1>
     <p class="description">

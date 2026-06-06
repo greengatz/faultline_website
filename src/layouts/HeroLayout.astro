@@ -1,12 +1,13 @@
 ---
 import { Image } from 'astro:assets';
-import tinyTitansImage from '../assets/tiny_titans.jpg';
+import titanImage from '../assets/titan.jpg';
 
 interface Props {
   reverse?: boolean;
 }
 
 const { reverse = false } = Astro.props;
+const { image_src = titanImage} = Astro.props;
 ---
 
 <section class="hero-section">
@@ -16,7 +17,7 @@ const { reverse = false } = Astro.props;
     </div>
     <div class="hero-image-wrapper">
       <Image 
-        src={tinyTitansImage} 
+        src={image_src} 
         alt="Tiny Titans" 
         class="hero-image"
         loading="eager"
