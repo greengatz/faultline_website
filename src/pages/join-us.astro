@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import HeroLayout from '../layouts/HeroLayout.astro';
 import marinesNidsImage from '../assets/marines_nids_2.jpg';
+
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <Layout title="Join Us | Faultline 40k">
@@ -19,7 +21,7 @@ import marinesNidsImage from '../assets/marines_nids_2.jpg';
         We organize through <a href="https://discord.gg/w2EAQSn2W7">Discord</a>. We schedule our games in advance so no one shows up and can't find a partner.
       </li>
       <li>
-        To become a full member, please read through our welcome document (TODO - link) to learn more about us, then come and play a few games with us!
+        To become a full member, please read through our <a href={`${baseUrl}/faultline_welcome.pdf`}>welcome document</a> to learn more about us, then come and play a few games with us!
       </li>
     </ul>
     <div class="actions">
